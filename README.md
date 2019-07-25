@@ -18,7 +18,8 @@ Repository นี้ตั้งใจสร้างขึ้นมาเพื
 ### การใช้งาน
 ----
 
-...
+“จัดเก็บ MSSQL Database ลง GitHub ด้วย Visual Studio 2017” by pztrinity 
+https://link.medium.com/nYihW3joCY
 
 License
 ----
