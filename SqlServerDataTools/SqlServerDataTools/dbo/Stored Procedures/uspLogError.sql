@@ -19,9 +19,7 @@ BEGIN
         IF ERROR_NUMBER() IS NULL
             RETURN;
 
-        -- Return if inside an uncommittable transaction.
-        -- Data insertion/modification is not allowed when 
-        -- a transaction is in an uncommittable state.
+
         IF XACT_STATE() = -1
         BEGIN
             PRINT 'Cannot log error since the current transaction is in an uncommittable state. ' 

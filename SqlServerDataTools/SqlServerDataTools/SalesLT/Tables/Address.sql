@@ -1,16 +1,19 @@
 ﻿CREATE TABLE [SalesLT].[Address] (
-    [AddressID]     INT              IDENTITY (1, 1) NOT FOR REPLICATION NOT NULL,
-    [AddressLine1]  NVARCHAR (60)    NOT NULL,
-    [AddressLine2]  NVARCHAR (60)    NULL,
-    [City]          NVARCHAR (30)    NOT NULL,
-    [StateProvince] [dbo].[Name]     NOT NULL,
-    [CountryRegion] [dbo].[Name]     NOT NULL,
-    [PostalCode]    NVARCHAR (15)    NOT NULL,
-    [rowguid]       UNIQUEIDENTIFIER CONSTRAINT [DF_Address_rowguid] DEFAULT (newid()) ROWGUIDCOL NOT NULL,
-    [ModifiedDate]  DATETIME         CONSTRAINT [DF_Address_ModifiedDate] DEFAULT (getdate()) NOT NULL,
+    [AddressID]          INT              IDENTITY (1, 1) NOT FOR REPLICATION NOT NULL,
+    [AddressLine1]       NVARCHAR (100)   NOT NULL,
+    [AddressLine2]       NVARCHAR (100)   NULL,
+    [City]               NVARCHAR (30)    NOT NULL,
+    [StateProvince]      [dbo].[Name]     NOT NULL,
+    [CountryRegion]      [dbo].[Name]     NOT NULL,
+    [PostalCode]         NVARCHAR (15)    NOT NULL,
+    [rowguid]            UNIQUEIDENTIFIER CONSTRAINT [DF_Address_rowguid] DEFAULT (newid()) ROWGUIDCOL NOT NULL,
+    [ModifiedDate]       DATETIME         CONSTRAINT [DF_Address_ModifiedDate] DEFAULT (getdate()) NOT NULL,
+    [ThisIsTheNewFields] NVARCHAR (30)    NULL,
     CONSTRAINT [PK_Address_AddressID] PRIMARY KEY CLUSTERED ([AddressID] ASC),
     CONSTRAINT [AK_Address_rowguid] UNIQUE NONCLUSTERED ([rowguid] ASC)
 );
+
+
 
 
 GO
@@ -72,13 +75,19 @@ EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Unique nonc
 
 
 GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Default constraint value of GETDATE()', @level0type = N'SCHEMA', @level0name = N'SalesLT', @level1type = N'TABLE', @level1name = N'Address', @level2type = N'CONSTRAINT', @level2name = N'DF_Address_ModifiedDate';
 
-
-GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Default constraint value of NEWID()', @level0type = N'SCHEMA', @level0name = N'SalesLT', @level1type = N'TABLE', @level1name = N'Address', @level2type = N'CONSTRAINT', @level2name = N'DF_Address_rowguid';
 
 
 GO
-EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Primary key (clustered) constraint', @level0type = N'SCHEMA', @level0name = N'SalesLT', @level1type = N'TABLE', @level1name = N'Address', @level2type = N'CONSTRAINT', @level2name = N'PK_Address_AddressID';
+
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Clustered index created by a primary key constraint.', @level0type = N'SCHEMA', @level0name = N'SalesLT', @level1type = N'TABLE', @level1name = N'Address', @level2type = N'CONSTRAINT', @level2name = N'PK_Address_AddressID';
+
+
+
+
+GO
+EXECUTE sp_addextendedproperty @name = N'MS_Description', @value = N'Name of the city.', @level0type = N'SCHEMA', @level0name = N'SalesLT', @level1type = N'TABLE', @level1name = N'Address', @level2type = N'COLUMN', @level2name = N'ThisIsTheNewFields';
 
