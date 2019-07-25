@@ -14,9 +14,6 @@ Repository นี้ตั้งใจสร้างขึ้นมาเพื
 * [MSSQL 2016 - Express](https://www.microsoft.com/en-us/download/details.aspx?id=56840) - Database Server ที่จะทดลองใช้
 * [SQL Server Management Studio 18.1](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) - Client Tool สำหรับการต่อ Database Server
 
-And of course Dillinger itself is open source with a [public repository][dill]
- on GitHub.
-
 ### การใช้งาน
 ----
 
